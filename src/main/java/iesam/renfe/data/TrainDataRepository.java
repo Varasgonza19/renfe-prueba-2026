@@ -18,4 +18,9 @@ public class TrainDataRepository implements TrainRepository {
     public ArrayList<Train> getTrains() {
         return dataSource.findAll();
     }
+
+    @Override
+    public void deleteTrain(String id) {
+        dataSource.delete(id);
+    }
 }

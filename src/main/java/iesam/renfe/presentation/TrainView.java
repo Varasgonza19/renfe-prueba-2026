@@ -1,10 +1,7 @@
 package iesam.renfe.presentation;
 
 import iesam.renfe.data.TrainDataRepository;
-import iesam.renfe.domain.GetTrainsUseCase;
-import iesam.renfe.domain.Train;
-import iesam.renfe.domain.TrainRepository;
-import iesam.renfe.domain.UseCaseSaveTrain;
+import iesam.renfe.domain.*;
 
 import java.util.ArrayList;
 
@@ -24,7 +21,15 @@ public class TrainView {
         GetTrainsUseCase getTrainsUseCase = new GetTrainsUseCase(new TrainDataRepository());
         ArrayList<Train> trains = getTrainsUseCase.execute();
         System.out.println(trains);
+        System.out.println("List Trains");
+        System.out.println(trains);
 
+    }
+
+    public static void deleteTrain() {
+        UseCaseDeleteTrain useCaseDeleteTrain = new UseCaseDeleteTrain(new TrainDataRepository());
+        useCaseDeleteTrain.execute("MHD-001");
+        System.out.println("Train deleted :: " + "MHD-001");
     }
 
 }

@@ -13,4 +13,9 @@ public class TrainDataRepository implements TrainRepository {
     public void saveTrain(Train train) {
         dataSource.save(train);
     }
+
+    @Override
+    public ArrayList<Train> getTrains() {
+        return dataSource.findAll();
+    }
 }
